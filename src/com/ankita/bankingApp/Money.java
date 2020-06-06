@@ -20,7 +20,7 @@ public class Money implements Comparable {
 	 */
 	public double getAmount() {
 		// @TODO:  Fill in the code for this
-		
+		return this.amount;
 	}
 	
 	/**
@@ -29,7 +29,7 @@ public class Money implements Comparable {
 	 */
 	public Currency getCurrency() {
 		// @TODO:  Fill in the code for this
-		
+		return this.currency;
 	}
 	
 	/**
@@ -38,7 +38,7 @@ public class Money implements Comparable {
 	 */
 	public String toString() {
 		// @TODO:  Fill in the code for this
-		
+		return this.amount+" "+this.currency.getName();
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class Money implements Comparable {
 	 */
 	public double getUniversalValue() {
 		// @TODO:  Fill in the code for this
-		
+		return this.currency.valueInUSD(amount);
 	}
 	
 	/**
@@ -57,7 +57,7 @@ public class Money implements Comparable {
 	 */
 	public boolean equals(Money other) {
 		// @TODO:  Fill in the code for this
-		
+		return this.getUniversalValue() == other.getUniversalValue();
 	}
 	
 	/**
@@ -68,7 +68,12 @@ public class Money implements Comparable {
 	 */
 	public Money add(Money other) {
 		// @TODO:  Fill in the code for this
-		
+		if(this.currency.getName().equalsIgnoreCase(other.currency.getName()))
+		{
+			return new Money(this.amount+other.amount,this.currency);
+		}
+		return new Money(this.amount+this.currency.valueInThisCurrency(other.amount,other.currency),this.getCurrency());
+
 	}
 
 	/**
@@ -79,7 +84,12 @@ public class Money implements Comparable {
 	 */
 	public Money subtract(Money other) {
 		// @TODO:  Fill in the code for this
-		
+		if(this.currency.getName().equalsIgnoreCase(other.currency.getName()))
+		{
+			return new Money(this.amount-other.amount,this.currency);
+		}
+		return new Money(this.amount-this.currency.valueInThisCurrency(other.amount,other.currency),this.getCurrency());
+
 	}
 	
 	/**
@@ -88,7 +98,7 @@ public class Money implements Comparable {
 	 */
 	public boolean isZero() {
 		// @TODO:  Fill in the code for this
-		
+		return this.amount == 0.0;
 	}
 	/**
 	 * Negate the amount of money, i.e. if the amount is 10.0 CAD the negation returns -10.0 CAD
@@ -96,7 +106,7 @@ public class Money implements Comparable {
 	 */
 	public Money negate() {
 		// @TODO:  Fill in the code for this
-		
+		return new Money((-1)*this.amount,this.currency);
 	}
 	
 	/**
@@ -110,6 +120,6 @@ public class Money implements Comparable {
 	 */
 	public int compareTo(Object other) {
 		// @TODO:  Fill in the code for this
-		
+		return Double.compare(this.getUniversalValue(), ((Money) other).getUniversalValue());
 	}
 }
