@@ -4,6 +4,7 @@ public class Money implements Comparable {
 	private double amount;
 	private Currency currency;
 
+
 	/**
 	 * New Money
 	 * @param amount	The amount of money

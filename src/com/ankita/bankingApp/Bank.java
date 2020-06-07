@@ -9,8 +9,8 @@ public class Bank {
 	
 	/**
 	 * Create a new bank.  
-	 * @param name Name of this bank
-	 * @param currency Base currency of this bank (Example - Canadian banks will have base currency of CAD.  American banks will have base currency of USD.)
+	 * @param //name Name of this bank
+	 * @param //currency Base currency of this bank (Example - Canadian banks will have base currency of CAD.  American banks will have base currency of USD.)
 	 */
 	public Bank(String bankName, Currency baseCurrencyCode) {
 		this.name = bankName;
