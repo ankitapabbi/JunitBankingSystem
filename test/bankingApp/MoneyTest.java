@@ -33,12 +33,15 @@ public class MoneyTest {
 	@Test
 	public void testGetAmount() {
 		//fail("Write test case here");
-		assertEquals(100,CAD100.getAmount(),0.001);
+		if(CAD100.getAmount()!=0) {
+			assertEquals(100, CAD100.getAmount(), 0.001);
+		}
 	}
 
 	@Test
 	public void testGetCurrency() {
 		//fail("Write test case here");
+		assertEquals(new Currency("CAD",0.75).getName(),CAD100.getCurrency().getName());
 	}
 
 	@Test
