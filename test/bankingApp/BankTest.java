@@ -56,7 +56,10 @@ public class BankTest {
 	@Test
 	public void testGetCurrency() {
 		//fail("Write test case here");
-
+        assertEquals("CAD",RBC.getCurrency().getName());
+        //this fails as expected is CAD
+       // assertEquals("HKD",RBC.getCurrency().getName());
+        assertEquals("HKD",HSBC.getCurrency().getName());
 	}
 
 	@Test
