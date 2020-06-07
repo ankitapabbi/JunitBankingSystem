@@ -47,6 +47,9 @@ public class BankTest {
 	@Test
 	public void testGetName() {
 		//fail("Write test case here");
+        assertEquals("TD Bank",TD.getName());
+        assertEquals("Royal Bank of Canada",RBC.getName());
+        assertEquals("Hong Kong Shanghai Banking Corporation",HSBC.getName());
 
 	}
 

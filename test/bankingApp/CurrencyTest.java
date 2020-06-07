@@ -82,8 +82,7 @@ public class CurrencyTest {
 		assertEquals(11.4,EUR.valueInUSD(10),0.001); //Alternative Assert
 		assertEquals(0,Double.compare(12.6,GBP.valueInUSD(10)));
 		assertEquals(12.6,GBP.valueInUSD(10),0.001);
-		//assertEquals(0,Double.compare(1.3,HKD.valueInUSD(10)));
-		//assertEquals(1.3,HKD.valueInUSD(10),0.001);
+
 	}
 	
 	@Test
