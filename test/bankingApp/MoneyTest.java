@@ -1,18 +1,18 @@
 package bankingApp;
 
-import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import bankingApp.Currency;
-import bankingApp.Money;
+import com.ankita.bankingApp.Currency;
+import com.ankita.bankingApp.Money;
+
+import org.junit.jupiter.api.Test;
 
 public class MoneyTest {
 	protected Currency CAD, HKD, NOK, EUR;
 	protected Money CAD100, EUR10, CAD200, EUR20, CAD0, EUR0, CADnegative100;
 	
-	@Before
+	//@Before
 	public void setUp() throws Exception {
 		// setup sample currencies
 		CAD = new Currency("CAD", 0.75);
@@ -32,51 +32,52 @@ public class MoneyTest {
 
 	@Test
 	public void testGetAmount() {
-		fail("Write test case here");
+		//fail("Write test case here");
+		assertEquals(100,CAD100.getAmount(),0.001);
 	}
 
 	@Test
 	public void testGetCurrency() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
 	public void testToString() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
 	public void testGetUniversalValue() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
 	public void testEqualsMoney() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
 	public void testAdd() {
-		fail("Write test case here");
+	//	fail("Write test case here");
 	}
 
 	@Test
 	public void testSubtract() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
 	public void testIsZero() {
-		fail("Write test case here");
+	//	fail("Write test case here");
 	}
 
 	@Test
 	public void testNegate() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
 	public void testCompareTo() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 }

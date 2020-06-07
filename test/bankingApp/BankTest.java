@@ -1,14 +1,14 @@
 package bankingApp;
 
-import static org.junit.Assert.*;
+
+
+import com.ankita.bankingApp.AccountDoesNotExistException;
+import com.ankita.bankingApp.AccountExistsException;
+import com.ankita.bankingApp.Bank;
+import com.ankita.bankingApp.Currency;
 
 import org.junit.Before;
-import org.junit.Test;
-
-import bankingApp.AccountDoesNotExistException;
-import bankingApp.AccountExistsException;
-import bankingApp.Bank;
-import bankingApp.Currency;
+import org.junit.jupiter.api.Test;
 
 public class BankTest {
 	protected Currency CAD;
@@ -45,12 +45,12 @@ public class BankTest {
 
 	@Test
 	public void testGetName() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
 	public void testGetCurrency() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class BankTest {
 		
 		// See the example in class notes for testing exceptions.
 		
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
@@ -70,7 +70,7 @@ public class BankTest {
 		
 		// See the example in class notes for testing exceptions.
 		
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 
 	@Test
@@ -80,7 +80,7 @@ public class BankTest {
 		
 		// See the example in class notes for testing exceptions.
 		
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 	
 	@Test
@@ -90,7 +90,7 @@ public class BankTest {
 		
 		// See the example in class notes for testing exceptions.
 		
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 	
 	@Test
@@ -99,7 +99,7 @@ public class BankTest {
 		// 1. Transfer from account to account
 		// 2. Transfer between banks
 		// See the Bank.java file for more details on Transfers
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 	
 }

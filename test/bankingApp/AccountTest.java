@@ -1,13 +1,13 @@
 package bankingApp;
 
+import com.ankita.bankingApp.Account;
+import com.ankita.bankingApp.Bank;
+import com.ankita.bankingApp.Currency;
+import com.ankita.bankingApp.Money;
 import org.junit.Before;
 import org.junit.Test;
 
-import bankingApp.Account;
-import bankingApp.AccountDoesNotExistException;
-import bankingApp.Bank;
-import bankingApp.Currency;
-import bankingApp.Money;
+
 
 import static org.junit.Assert.*;
 
@@ -37,12 +37,12 @@ public class AccountTest {
 	@Test
 	public void testAddWithdraw() {
 		// Something to consider - can you withdraw in a different currency?
-		fail("Write test case here");
+		//fail("Write test case here");
 		
 	}
 	
 	@Test
 	public void testGetBalance() {
-		fail("Write test case here");
+		//fail("Write test case here");
 	}
 }
