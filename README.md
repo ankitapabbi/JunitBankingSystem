@@ -5,7 +5,7 @@ Tessting application using junit.
 We have performed automated testing using <b>Junit</> for the banking system.
 
 <h2>Team Members </h2>
-Ankita Pabbi (c0751145)
-Sidharth Nayyar (c0752828)
+Ankita Pabbi (c0751145)<br>
+Sidharth Nayyar (c0752828)<br>
 Anuj Kumar (c0)
   
