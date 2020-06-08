@@ -73,11 +73,13 @@ public class Bank {
 	 */
 	public void withdraw(String accountid, Money money) throws AccountDoesNotExistException {
 		if (!accountlist.containsKey(accountid)) {
-			throw new AccountDoesNotExistException();
+			throw new AccountDoesNotExistException("Account Does Not Exist");
 		}
 		else {
 			Account account = accountlist.get(accountid);
-			account.deposit(money);
+			Money beforeWithdraw = account.getBalance();
+			Money afterWithdraw = beforeWithdraw.subtract(money);
+			account.setBalance(afterWithdraw);
 		}
 	}
 	
@@ -90,7 +92,7 @@ public class Bank {
 	 */
 	public double getBalance(String accountid) throws AccountDoesNotExistException {
 		if (!accountlist.containsKey(accountid)) {
-			throw new AccountDoesNotExistException();
+			throw new AccountDoesNotExistException("Account Does Not Exist");
 		}
 		else {
 			return accountlist.get(accountid).getBalance().getAmount();
@@ -107,7 +109,7 @@ public class Bank {
 	 */
 	public void transfer(String fromaccount, Bank tobank, String toaccount, Money amount) throws AccountDoesNotExistException {
 		if (!accountlist.containsKey(fromaccount) || !tobank.accountlist.containsKey(toaccount)) {
-			throw new AccountDoesNotExistException();
+			throw new AccountDoesNotExistException("Account Does Not Exist");
 		}
 		else {
 			accountlist.get(fromaccount).withdraw(amount);

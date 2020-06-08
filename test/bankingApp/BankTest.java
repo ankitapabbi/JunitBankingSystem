@@ -70,6 +70,24 @@ public class BankTest {
 		// See the example in class notes for testing exceptions.
 		
 		//fail("Write test case here");
+		Exception exception = assertThrows(AccountExistsException.class, () -> {
+			RBC.openAccount("Albert");
+
+		});
+
+		String expectedExceptionMessage = "Account Already Exist";
+		String actualExceptionMessage = exception.getMessage();
+		assertTrue(actualExceptionMessage.contains(expectedExceptionMessage));
+
+		Exception exception1 = assertThrows(AccountExistsException.class, () -> {
+			RBC.openAccount("Marcos");
+
+		});
+
+		String expectedExceptionMessage1 = "Account Already Exist";
+		String actualExceptionMessage1 = exception1.getMessage();
+		assertTrue(actualExceptionMessage1.contains(expectedExceptionMessage1));
+
 
 
 	}
@@ -83,6 +101,18 @@ public class BankTest {
 		
 		//fail("Write test case here");
 
+		//created Albert's account with 30 CAD
+		RBC.deposit("Albert",new Money(30,CAD));
+		Exception exception = assertThrows(AccountDoesNotExistException.class, () -> {
+			RBC.deposit("ABC",new Money(10,CAD));
+			TD.deposit("DEF",new Money(20,CAD));
+
+		});
+		assertEquals(30,RBC.getBalance("Albert"),0.001);
+		String expectedExceptionMessage = "Account Does Not Exist";
+		String actualExceptionMessage = exception.getMessage();
+		assertTrue(actualExceptionMessage.contains(expectedExceptionMessage));
+
 	}
 
 	@Test
@@ -93,6 +123,19 @@ public class BankTest {
 		// See the example in class notes for testing exceptions.
 		
 		//fail("Write test case here");
+		assertEquals(0,RBC.getBalance("Albert"),0.001);
+		RBC.deposit("Marcos",new Money(150,CAD));
+		assertEquals(15,RBC.getBalance("Albert"),0.001);
+		RBC.withdraw("Marcos",new Money(20,CAD));
+		assertEquals(10,RBC.getBalance("Albert"),0.001);
+		Exception exception = assertThrows(AccountDoesNotExistException.class, () -> {
+			RBC.withdraw("ABC",new Money(5,CAD));
+
+		});
+		assertEquals(130,RBC.getBalance("Albert"),0.001);
+		String expectedExceptionMessage = "Account Does Not Exist";
+		String actualExceptionMessage = exception.getMessage();
+		assertTrue(actualExceptionMessage.contains(expectedExceptionMessage));
 
 	}
 	
@@ -104,6 +147,16 @@ public class BankTest {
 		// See the example in class notes for testing exceptions.
 		
 		//fail("Write test case here");
+		TD.deposit("Jigesha",new Money(10,CAD));
+
+		assertEquals(10,RBC.getBalance("Jigesha"),0.001);
+		Exception exception = assertThrows(AccountDoesNotExistException.class, () -> {
+			TD.getBalance("ABC");
+
+		});
+		String expectedExceptionMessage = "Account Does Not Exist";
+		String actualExceptionMessage = exception.getMessage();
+		assertTrue(actualExceptionMessage.contains(expectedExceptionMessage));
 
 	}
 	
@@ -111,10 +164,33 @@ public class BankTest {
 	public void testTransfer() throws AccountDoesNotExistException {
 		// Note: You should test both types of transfers:
 		// 1. Transfer from account to account
+		RBC.deposit("Marcos",new Money(30,CAD));
+		assertEquals(30,RBC.getBalance("Marcos"),0.001);
+		RBC.deposit("Albert",new Money(10,CAD));
+		assertEquals(10,RBC.getBalance("Albert"),0.001);
+		RBC.transfer("Marcos","Albert",new Money(10,CAD));
+		assertEquals(20,RBC.getBalance("Marcos"),0.001);
+
 		// 2. Transfer between banks
+
+		assertEquals(6,RBC.getBalance("Albert"),0.001);
+		TD.deposit("Jigesha",new Money(50,CAD));
+		assertEquals(50,TD.getBalance("Jigesha"),0.001);
+
+		RBC.transfer("Marcos",TD,"Jigesha",new Money(10,CAD));
+		assertEquals(40,TD.getBalance("Jigesha"),0.001);
 		// See the Bank.java file for more details on Transfers
 		//fail("Write test case here");
 
+
+
+		Exception exception = assertThrows(AccountDoesNotExistException.class, () -> {
+			RBC.transfer("Marcos","ABC",new Money(1,CAD));
+		});
+		assertEquals(20,RBC.getBalance("Marcos"),0.001);
+		String expectedExceptionMessage = "Account Does Not Exist";
+		String actualExceptionMessage = exception.getMessage();
+		assertTrue(actualExceptionMessage.contains(expectedExceptionMessage));
 	}
 	
 }
