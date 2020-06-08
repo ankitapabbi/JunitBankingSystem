@@ -73,6 +73,10 @@ public class Account {
 		return content;
 	}
 
+	public Money setBalance(Money money) {
+		return content = money;
+	}
+
 	/* Everything below belongs to the private inner class, TimedPayment */
 	private class TimedPayment {
 		private int interval, next;

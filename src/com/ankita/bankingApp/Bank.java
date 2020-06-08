@@ -56,12 +56,12 @@ public class Bank {
 	 */
 	public void deposit(String accountid, Money money) throws AccountDoesNotExistException {
 		if (accountlist.containsKey(accountid)) {
-			throw new AccountDoesNotExistException();
-		}
-		else {
 			Money m = new Money(money.getAmount(), new Currency("USD", money.getCurrency().getRate()));
 			Account account = accountlist.get(accountid);
 			account.deposit(m);
+		}
+		else {
+			throw new AccountDoesNotExistException("Account Does Not Exist");
 		}
 	}
 	
