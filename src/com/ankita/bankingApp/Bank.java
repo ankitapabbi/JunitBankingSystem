@@ -41,10 +41,10 @@ public class Bank {
 	 */
 	public void openAccount(String accountid) throws AccountExistsException {
 		if (accountlist.containsKey(accountid)) {
-			throw new AccountExistsException();
+			throw new AccountExistsException("Account Already Exist");
 		}
 		else {
-			accountlist.get(accountid);
+			accountlist.put(accountid,new Account(accountid,getCurrency()));
 		}
 	}
 	
